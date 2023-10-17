@@ -15,7 +15,8 @@ public class AuthController : ControllerBase
         _tokenService = tokenService;
     }
 
-    public IActionResult Login(string username)
+    [HttpGet]
+    public IActionResult Login([FromQuery] string username)
     {
         var token = _tokenService.CreateAccessToken(username);
 
@@ -23,6 +24,7 @@ public class AuthController : ControllerBase
     }
 
     [Authorize]
+    [HttpGet]
     public IActionResult IsAuthorized()
     {
         return Ok();

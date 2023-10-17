@@ -1,3 +1,8 @@
 ﻿namespace AuthAPI;
 
-public record JwtOptions(string SigningKey);
+public class JwtOptions
+{
+    public const string Jwt = "Jwt";
+    
+    public string SigningKey { get; set; }
+}

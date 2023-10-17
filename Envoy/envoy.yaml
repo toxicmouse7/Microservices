@@ -2,7 +2,7 @@ admin:
   address:
     socket_address:
       address: 0.0.0.0
-      port_value: 9902
+      port_value: 9901
 
 static_resources:
 
@@ -33,10 +33,15 @@ static_resources:
               domains: ["*"]
               routes:
               - match:
-                  prefix: "/"
+                  prefix: "/login"
                 route:
-                  host_rewrite_literal: www.envoyproxy.io
-                  cluster: service_envoyproxy_io
+                  prefix_rewrite: "/Auth/Login"
+                  cluster: auth_service
+              - match:
+                  prefix: "/c"
+                route:
+                  prefix_rewrite: "/Coffee/RandomCoffee"
+                  cluster: coffee_service
 
   clusters:
   - name: auth_service
@@ -49,10 +54,17 @@ static_resources:
         - endpoint:
             address:
               socket_address:
-                address: www.envoyproxy.io
-                port_value: 443
-    transport_socket:
-      name: envoy.transport_sockets.tls
-      typed_config:
-        "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-        sni: www.envoyproxy.io
+                address: authapi
+                port_value: 80
+  - name: coffee_service
+    type: LOGICAL_DNS
+    dns_lookup_family: V4_ONLY
+    load_assignment:
+      cluster_name: coffee_service
+      endpoints:
+        - lb_endpoints:
+            - endpoint:
+                address:
+                  socket_address:
+                    address: coffeeapi
+                    port_value: 80

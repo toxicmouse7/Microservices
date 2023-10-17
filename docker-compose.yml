@@ -2,10 +2,10 @@
   envoygateway:
     build: Envoy/
     ports:
-      - 9902:9902
+      - 9901:9901
       - 10000:10000
     volumes:
-      - ./Envoy/envoy.yml:/etc/envoy/envoy.yml
+      - ./Envoy/envoy.yaml:/etc/envoy/envoy.yaml
   
   authapi:
     image: authapi

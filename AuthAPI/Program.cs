@@ -1,12 +1,16 @@
 using System.Text;
 using AuthAPI;
+using AuthAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services
+    .AddOptions<JwtOptions>()
+    .BindConfiguration(JwtOptions.Jwt);
 
 var jwtOptions = builder.Configuration
-    .GetSection("JwtOptions")
+    .GetSection(JwtOptions.Jwt)
     .Get<JwtOptions>()!;
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -24,6 +28,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(signingKeyBytes)
         };
     });
+
+builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddControllers();
 
