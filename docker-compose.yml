@@ -1,12 +1,4 @@
 ﻿services:
-  envoygateway:
-    build: Envoy/
-    ports:
-      - 9901:9901
-      - 10000:10000
-    volumes:
-      - ./Envoy/envoy.yaml:/etc/envoy/envoy.yaml
-  
   authapi:
     image: authapi
     build:
@@ -22,3 +14,11 @@
       dockerfile: CoffeeAPI/Dockerfile
     ports:
       - 5002:80
+        
+  gatewayapi:
+    image: gatewayapi
+    build:
+      context: .
+      dockerfile: GatewayAPI/Dockerfile
+    ports:
+      - 5003:80

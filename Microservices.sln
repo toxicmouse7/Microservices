@@ -9,11 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Envoy", "Envoy", "{19AA3067-3448-4677-87EB-74F2B62E7CFF}"
-	ProjectSection(SolutionItems) = preProject
-		Envoy\Dockerfile = Envoy\Dockerfile
-		Envoy\envoy.yaml = Envoy\envoy.yaml
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayAPI", "GatewayAPI\GatewayAPI.csproj", "{993A6DB3-07B2-496F-A3E0-C7CBD10A7B22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,8 +25,11 @@ Global
 		{216BB8DB-54AA-44E5-9A31-44870CA4E16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216BB8DB-54AA-44E5-9A31-44870CA4E16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216BB8DB-54AA-44E5-9A31-44870CA4E16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993A6DB3-07B2-496F-A3E0-C7CBD10A7B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993A6DB3-07B2-496F-A3E0-C7CBD10A7B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993A6DB3-07B2-496F-A3E0-C7CBD10A7B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993A6DB3-07B2-496F-A3E0-C7CBD10A7B22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{19AA3067-3448-4677-87EB-74F2B62E7CFF} = {F5BF1C96-AF23-4040-99B6-31762904FD41}
 	EndGlobalSection
 EndGlobal
