@@ -4,16 +4,12 @@
     build:
       context: .
       dockerfile: AuthAPI/Dockerfile
-    ports:
-      - 5001:80
       
   coffeeapi:
     image: coffeeapi
     build:
       context: .
       dockerfile: CoffeeAPI/Dockerfile
-    ports:
-      - 5002:80
         
   gatewayapi:
     image: gatewayapi
