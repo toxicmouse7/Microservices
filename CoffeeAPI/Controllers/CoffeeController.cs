@@ -8,7 +8,7 @@ public class CoffeeController : ControllerBase
 {
     private static readonly List<string> Coffee = new()
     {
-        "Coffee1", "Coffee2"
+        "Coffee3", "Coffee4"
     };
 
     public IActionResult RandomCoffee()
