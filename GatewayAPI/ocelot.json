@@ -14,21 +14,6 @@
       ],
       "RouteIsCaseSensitive": true,
       "DownstreamScheme": "http"
-    },
-    {
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "authapi",
-          "Port": 80
-        }
-      ],
-      "DownstreamPathTemplate": "/{everything}",
-      "UpstreamPathTemplate": "/auth/{everything}",
-      "UpstreamHttpMethod": [
-        "Get"
-      ],
-      "RouteIsCaseSensitive": true,
-      "DownstreamScheme": "http"
     }
   ]
 }
