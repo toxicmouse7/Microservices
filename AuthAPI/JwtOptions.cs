@@ -3,6 +3,6 @@
 public class JwtOptions
 {
     public const string Jwt = "Jwt";
-    
-    public string SigningKey { get; set; }
+
+    public string SigningKey { get; set; } = null!;
 }

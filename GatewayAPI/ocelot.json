@@ -1,18 +1,34 @@
 ﻿{
-  "Routes": [{
-    "DownstreamHostAndPorts": [
-      {
-        "Host": "localhost",
-        "Port": 51876
-      }
-    ],
-    "DownstreamPathTemplate": "/",
-    "UpstreamPathTemplate": "/",
-    "UpstreamHttpMethod": ["Get"],
-    "RouteIsCaseSensitive": true,
-    "DownstreamScheme": "http"
-  }],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5191"
-  }
+  "Routes": [
+    {
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "coffeeapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "UpstreamPathTemplate": "/coffee/{everything}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "RouteIsCaseSensitive": true,
+      "DownstreamScheme": "http"
+    },
+    {
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "RouteIsCaseSensitive": true,
+      "DownstreamScheme": "http"
+    }
+  ]
 }
